@@ -7,3 +7,5 @@
 Thanks for checking out my weather app.
 
 Built with HTML/CSS and Javascript, using API
+
+Live url : https://makodoli.github.io/Weather-app/
