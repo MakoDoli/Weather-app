@@ -18,7 +18,11 @@ const url =
   apikey +
   "&units=" +
   unit;
-
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    getWeather();
+  }
+});
 function getWeather() {
   icons.forEach((elem) => {
     elem.style.opacity = "0";
