@@ -27,7 +27,6 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-
   color: var(--textColor);
   text-align: center;
 }
@@ -53,9 +52,7 @@ input:focus {
   color: white;
   opacity: 0.5;
 }
-i {
-  opacity: 0;
-}
+
 .cityenter {
   border: 2px solid var(--textColor);
   border-radius: 5px;
@@ -74,17 +71,15 @@ i {
 i {
   font-size: 38px;
 }
-.ph-cloud-lightning,
-.ph-sun-dim,
-.ph-cloud-rain,
-.ph-umbrella,
-.ph-snowflake,
-.ph-thermometer-hot,
-.ph-cloud,
-.ph-cloud-fog,
-.ph-wind {
-  opacity: 0;
-}
+
 .empty {
   display: none;
+}
+.none {
+  display: none;
+  margin: 0 5px;
+}
+.icon-container {
+  display: flex;
+  justify-content: center;
 }
