@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <title>Weather App</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Weather In</h1>
+      <div class="input">
+        <p>Enter City Name</p>
+        <div class="cityenter">
+          <input id="city" type="text" placeholder="City Name" />
+        </div>
+        <div class="weather" onclick="getWeather()"><p>Let's see</p></div>
+      </div>
+      <p class="empty">Want me to guess the city name? 😊</p>
+      <p class="wrong">
+        We can't access weather in Atlantida. Please enter the name of city
+        above the sea level
+      </p>
+      <div class="response">
+        <h1 class="resultCity"></h1>
+        <i id="1" class="ph-cloud-lightning invisible"></i>
+        <i id="2" class="ph-sun-dim invisible"></i>
+        <i id="3" class="ph-cloud-rain invisible"></i>
+        <i id="4" class="ph-umbrella invisible"></i>
+        <i id="5" class="ph-snowflake invisible"></i>
+        <i id="6" class="ph-thermometer-hot invisible"></i>
+        <i id="7" class="ph-cloud invisible"></i>
+        <i id="8" class="ph-cloud-fog invisible"></i>
+        <i class="ph-wind invisible"></i>
+        <h1 class="resulttemp"></h1>
+        <p class="overall"></p>
+        <p></p>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
