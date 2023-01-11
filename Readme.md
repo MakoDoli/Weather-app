@@ -6,4 +6,6 @@
 
 Thanks for checking out my weather app.
 
+Live url: https://makodoli.github.io/Weather-app/
+
 Built with HTML/CSS and Javascript, using API
