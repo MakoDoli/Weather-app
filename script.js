@@ -23,7 +23,9 @@ document.addEventListener("keydown", function (e) {
     getWeather();
   }
 });
-function getWeather() {
+
+//async function for fetching weather api and rendering
+const getWeather = async function () {
   icons.forEach((elem) => {
     elem.style.display = "none";
   });
@@ -39,49 +41,56 @@ function getWeather() {
       apikey +
       "&units=" +
       unit;
-    fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if (data.cod !== 200) {
-          document.querySelector(".response").style.display = "none";
-          document.querySelector(".wrong").style.display = "block";
-        } else {
-          document.querySelector(".wrong").style.display = "none";
+    //---> withOUT async/await <---//
+    //in such case need to remove "async" from getWeather function
 
-          weather = data.weather[0].description;
-          temp = data.main.temp;
-          type = data.weather[0].id;
-          wind = data.wind.speed;
-          console.log(temp, type);
-          document.querySelector(".response").style.display = "block";
-          resultTemp.textContent = temp + " ° ";
-          resultCity.textContent = cityName.value.toUpperCase();
-          overall.textContent =
-            "You can expect " + weather + " in " + cityName.value.toUpperCase();
-          if (type < 300) {
-            document.querySelector(".none1").style.display = "block";
-          } else if (type >= 300 && type < 500) {
-            document.querySelector(".none3").style.display = "block";
-          } else if (type >= 500 && type < 600) {
-            document.querySelector(".none3").style.display = "block";
-            document.querySelector(".none4").style.display = "block";
-          } else if (type >= 600 && type < 700) {
-            console.log(type);
-            document.querySelector(".none5").style.display = "block";
-          } else if (type >= 700 && type < 800) {
-            console.log(type);
-            document.querySelector(".none8").style.display = "block";
-          } else if (type === 800) {
-            document.querySelector(".none2").style.display = "block";
-          } else if (type > 800) {
-            document.querySelector(".none7").style.display = "block";
-          }
-          if (wind > 8)
-            document.querySelector(".none9").style.display = "block";
-          cityName.value = "";
-        }
-      });
+    // fetch(url)
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+
+    // ---> with async/await <--- //
+    const apiFetch = await fetch(url);
+    console.log(apiFetch);
+    const data = await apiFetch.json();
+    console.log(data);
+    if (data.cod !== 200) {
+      document.querySelector(".response").style.display = "none";
+      document.querySelector(".wrong").style.display = "block";
+    } else {
+      document.querySelector(".wrong").style.display = "none";
+
+      weather = data.weather[0].description;
+      temp = data.main.temp;
+      type = data.weather[0].id;
+      wind = data.wind.speed;
+      console.log(temp, type);
+      document.querySelector(".response").style.display = "block";
+      resultTemp.textContent = temp + " ° ";
+      resultCity.textContent = cityName.value.toUpperCase();
+      overall.textContent =
+        "You can expect " + weather + " in " + cityName.value.toUpperCase();
+      if (type < 300) {
+        document.querySelector(".none1").style.display = "block";
+      } else if (type >= 300 && type < 500) {
+        document.querySelector(".none3").style.display = "block";
+      } else if (type >= 500 && type < 600) {
+        document.querySelector(".none3").style.display = "block";
+        document.querySelector(".none4").style.display = "block";
+      } else if (type >= 600 && type < 700) {
+        console.log(type);
+        document.querySelector(".none5").style.display = "block";
+      } else if (type >= 700 && type < 800) {
+        console.log(type);
+        document.querySelector(".none8").style.display = "block";
+      } else if (type === 800) {
+        document.querySelector(".none2").style.display = "block";
+      } else if (type > 800) {
+        document.querySelector(".none7").style.display = "block";
+      }
+      if (wind > 8) document.querySelector(".none9").style.display = "block";
+      cityName.value = "";
+    }
   }
-}
+};
